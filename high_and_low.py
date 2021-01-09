@@ -16,11 +16,13 @@ number is first.
 
 '''
 
+
 def high_and_low(numbers):
     numbers = [int(number) for number in numbers.split() if number != ' ']
     min_number = min(numbers)
     max_number = max(numbers)
     numbers = f'{max_number} {min_number}'
     return numbers
+
 
 print(high_and_low("4 5 29 54 4 0 -214 542 -64 1 -3 6 -6"))
