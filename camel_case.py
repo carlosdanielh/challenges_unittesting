@@ -1,10 +1,21 @@
 def to_camel_case(text):
-    is_lower = False
-    if text.split('-')[0][0].islower():
-        is_lower = True
-    if is_lower:
-        word = ''.join(word.title() for word in text.split('-'))
-        return word[0].upper()
+    if text != '':
+        is_lower_first_letter = False
+        if text.split('-')[0][0].islower():
+            is_lower_first_letter = True
+
+        if '-' in text:
+            simbol = '-' 
+        elif '_' in text:
+            simbol = '_'
+
+        list_word = [word.title() for word in text.split(simbol)]
+        if is_lower_first_letter:
+            list_word[0] = list_word[0].lower()
+
+        return ''.join(list_word)
+    else:
+        return ''
 
 
 print(to_camel_case('the-stealTH-warrior'))
