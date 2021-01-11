@@ -1,23 +1,12 @@
 def to_camel_case(text):
     if text != '':
+        text = text.replace('-', ' ').replace('_', ' ')
         is_lower_first_letter = False
-        if text.split('-')[0][0].islower():
+        
+        if text.split(' ')[0][0].islower():
             is_lower_first_letter = True
 
-        no_more_simbols = False
-        while (not no_more_simbols):
-            if '-' in text:
-                simbol = '-'
-            elif '_' in text:
-                simbol = '_'
-
-            list_word = [word.title() for word in text.split(simbol)]
-
-            text = ' '.join(list_word)
-
-            if '-' not in text and '_' not in text:
-                no_more_simbols = True
-
+        list_word = text.split()
         text = ' '.join(list_word).replace(' ', '')
 
         if is_lower_first_letter:
@@ -28,6 +17,7 @@ def to_camel_case(text):
             return text
     else:
         return ''
+
 
 def to_camel_case1(text):
     return text[:1] + text.title()[1:].replace('_', '').replace('-', '')
