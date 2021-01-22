@@ -48,8 +48,6 @@ def format_duration(sgs):
             words.append(list(dict_segs.keys())[index])            
         else:
             words.append(list(dict_segs.keys())[index][:-1])
-    print(show)
-    print(count)
     concatenate = ''
 
     more_than_1 = False
@@ -60,7 +58,6 @@ def format_duration(sgs):
         number = str(element)
 
         if element != 0:
-            # import pdb; pdb.set_trace()
             if count > 2:
                 concatenate += number + ' ' + words[index] + ', '
             elif count == 2:
@@ -69,7 +66,6 @@ def format_duration(sgs):
                 concatenate += ' and ' + number + ' ' + words[index]
             elif count == 1:
                 concatenate = number + ' ' + words[index]
-
             count -= 1
 
     return concatenate
